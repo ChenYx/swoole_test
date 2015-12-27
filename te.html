@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+ $.ajax({
+    type : "get",
+    url : "http://mm.ibbd.net/test",
+    dataType : "jsonp",
+    jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+    jsonpCallback:"success_jsonpCallback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+    success : function(json){
+        alert('success');
+    },
+    error:function(){
+        alert('fail');
+    }
+});
+  $('#sub').click(function(){//点击按钮提交
+                                        //要提交的表单id为form1
+                    
+            $.ajax({
+                 url:"http://mm.ibbd.net/test",
+dataType:"jsonp",
+                 type:"get",
+jsonp: "callback",
+//jsonpCallback:"person",
+                 success:function(data){
+                       console.log(data);//ajax返回的数据
+                 }
+            });     
+        });
+ 
+$('#subone').click(function(){//点击按钮提交
+                                        //要提交的表单id为form1
+                    
+            $.ajax({
+                 url:"http://mm.ibbd.net/test1",
+dataType:"jsonp",
+                 type:"get",
+jsonp: "callback",
+//jsonpCallback:"person",
+                 success:function(data){
+                       console.log(data);//ajax返回的数据
+                 }
+            });     
+        });
+ 
+});
+</script>
+</head>
+<body>
+<input type="button" id="sub">
+<input type="button" id="subone">
+</div>
+</body>
+</html>
